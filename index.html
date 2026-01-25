@@ -775,7 +775,7 @@
                         <span class="contact-icon">📧</span>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6bca3b7b8bcb996b3a6a5b7fbbfb8b1b3b8bfb3a4bfb7f8b5b9bb">[email&#160;protected]</a></p>
+                            <p><span id="email-contact"></span></p>
                         </div>
                     </div>
                     
@@ -820,11 +820,29 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 EPSA Ingeniería S.L. - Todos los derechos reservados</p>
-            <p>Diseño web: Pablo López Fernández | pablosagi1@gmail.com</p>
+            <p>Diseño web: Pablo López Fernández | <span id="email-footer"></span></p>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Generar emails dinámicamente para evitar protección automática
+        const emailUser = 'juanjo';
+        const emailDomain = 'epsa-ingenieria.com';
+        const emailFooterUser = 'pablosagi1';
+        const emailFooterDomain = 'gmail.com';
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailElement = document.getElementById('email-contact');
+            if (emailElement) {
+                emailElement.textContent = emailUser + '@' + emailDomain;
+            }
+            
+            const emailFooterElement = document.getElementById('email-footer');
+            if (emailFooterElement) {
+                emailFooterElement.textContent = emailFooterUser + '@' + emailFooterDomain;
+            }
+        });
+        
         // Menu hamburguesa para móvil
         const menuToggle = document.querySelector('.menu-toggle');
         const navMenu = document.querySelector('nav ul');
@@ -856,11 +874,4 @@
 
         // Intersection Observer for animations
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-   
+         
