@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EPSA Ingeniería S.L. | Ingeniería Industrial en Ponferrada</title>
+    <title>EPSA Ingeniería S.L. | Ingeniería en Ponferrada</title>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -385,6 +385,11 @@
             line-height: 1.6;
         }
 
+        .contact-details a {
+            color: white;
+            text-decoration: none;
+        }
+
         .contact-form {
             background: white;
             padding: 2.5rem;
@@ -458,30 +463,183 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            nav {
+                padding: 0 1rem;
             }
 
-            .hero .tagline {
+            .logo {
                 font-size: 1.2rem;
             }
 
             nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-dark);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                padding: 0.8rem 2rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+
+            .menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+                padding: 0.5rem;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 2rem;
+            }
+
+            .cta-button {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .servicios,
+            .sobre-nosotros,
+            .contacto {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
                 gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 2rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.3rem;
             }
 
             .about-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 2.5rem;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
+            .about-content h3 {
+                font-size: 1.6rem;
+            }
+
+            .about-content p {
+                font-size: 1rem;
             }
 
             .stats {
                 grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 1.2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .contact-item {
+                padding: 1.2rem;
+            }
+
+            .contact-icon {
+                font-size: 1.5rem;
+            }
+
+            .contact-details h4 {
+                font-size: 1rem;
+            }
+
+            .contact-details p {
+                font-size: 0.9rem;
+            }
+
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-group {
+                margin-bottom: 1.2rem;
+            }
+
+            .form-group label {
+                font-size: 0.95rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.8rem;
+                font-size: 0.95rem;
+            }
+
+            .submit-button {
+                padding: 0.9rem;
+                font-size: 1rem;
+            }
+
+            footer {
+                padding: 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Menú hamburguesa solo visible en móvil */
+        .menu-toggle {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
             }
         }
     </style>
@@ -490,6 +648,7 @@
     <header>
         <nav>
             <div class="logo"><span>EPSA</span> Ingeniería</div>
+            <button class="menu-toggle" aria-label="Menú">☰</button>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
@@ -616,7 +775,7 @@
                         <span class="contact-icon">📧</span>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <p style="color: white;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c6acb3a7a8aca986a3b6b5a7ebafa8a1a3a8afa3b4afa7e8a5a9ab">[email&#160;protected]</a></p>
+                            <p>juanjo@epsa-ingenieria.com</p>
                         </div>
                     </div>
                     
@@ -624,7 +783,7 @@
                         <span class="contact-icon">📱</span>
                         <div class="contact-details">
                             <h4>Teléfono</h4>
-                            <p><a href="tel:+34987428600" style="color: white; text-decoration: none;">987 428 600</a><br><a href="tel:+34676960245" style="color: white; text-decoration: none;">676 960 245</a></p>
+                            <p><a href="tel:+34987428600">987 428 600</a><br><a href="tel:+34676960245">676 960 245</a></p>
                         </div>
                     </div>
                 </div>
@@ -665,7 +824,22 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
+        // Menu hamburguesa para móvil
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('nav ul');
+
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+            });
+        });
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -681,4 +855,26 @@
         });
 
         // Intersection Observer for animations
-        const observerOption
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .stat-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
