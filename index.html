@@ -775,7 +775,7 @@
                         <span class="contact-icon">📧</span>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <p><span id="email-contact"></span></p>
+                            <p><span id="email-contact">juanjo(arroba)epsa-ingenieria.com</span></p>
                         </div>
                     </div>
                     
@@ -820,28 +820,23 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 EPSA Ingeniería S.L. - Todos los derechos reservados</p>
-            <p>Diseño web: Pablo López Fernández | <span id="email-footer"></span></p>
+            <p>Diseño web: Pablo López Fernández | <span id="email-footer">pablosagi1(arroba)gmail.com</span></p>
         </div>
     </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Generar emails dinámicamente para evitar protección automática
-        const emailUser = 'juanjo';
-        const emailDomain = 'epsa-ingenieria.com';
-        const emailFooterUser = 'pablosagi1';
-        const emailFooterDomain = 'gmail.com';
-        
-        document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
             const emailElement = document.getElementById('email-contact');
             if (emailElement) {
-                emailElement.textContent = emailUser + '@' + emailDomain;
+                emailElement.textContent = 'juanjo' + '@' + 'epsa-ingenieria.com';
             }
             
             const emailFooterElement = document.getElementById('email-footer');
             if (emailFooterElement) {
-                emailFooterElement.textContent = emailFooterUser + '@' + emailFooterDomain;
+                emailFooterElement.textContent = 'pablosagi1' + '@' + 'gmail.com';
             }
-        });
+        }, 100);
         
         // Menu hamburguesa para móvil
         const menuToggle = document.querySelector('.menu-toggle');
