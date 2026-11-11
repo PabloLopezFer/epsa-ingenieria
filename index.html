@@ -24,7 +24,7 @@
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "EPSA Ingeniería S.L.",
-      "description": "Empresa de ingeniería industrial con más de 30 años de experiencia en Ponferrada, León. Especialistas en proyectos de naves industriales, instalaciones eléctricas, térmicas, hidrosanitarias y locales comerciales.",
+      "description": "Empresa de ingeniería industrial con más de 30 años de experiencia en Ponferrada, León.",
       "url": "https://www.epsa-ingenieria.com",
       "telephone": ["+34987428600", "+34676960245"],
       "email": "juanjo@epsa-ingenieria.com",
@@ -36,30 +36,10 @@
         "postalCode": "24402",
         "addressCountry": "ES"
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 42.5460,
-        "longitude": -6.5976
-      },
+      "geo": {"@type": "GeoCoordinates", "latitude": 42.5460, "longitude": -6.5976},
       "areaServed": {"@type": "GeoRegion", "name": "El Bierzo, León, España"},
       "foundingDate": "1994",
-      "employee": {
-        "@type": "Person",
-        "name": "Juan José López de la Fuente",
-        "jobTitle": "Ingeniero Industrial"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Servicios de Ingeniería",
-        "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Proyectos de Naves Industriales"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Instalaciones Eléctricas"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Locales Comerciales"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Instalaciones Térmicas"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Instalaciones Hidrosanitarias"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Proyectos Técnicos Industriales"}}
-        ]
-      }
+      "employee": {"@type": "Person", "name": "Juan José López de la Fuente", "jobTitle": "Ingeniero Industrial"}
     }
     </script>
 
@@ -69,19 +49,16 @@
             --primary: #1a4d8f;
             --primary-dark: #0f2d52;
             --accent: #f39c12;
-            --bg-light: #f8f9fb;
+            --accent-light: #fef3dc;
+            --bg-light: #f4f6f9;
             --bg-white: #ffffff;
-            --text-dark: #1a1a1a;
+            --text-dark: #1a1a2e;
             --text-medium: #4a5568;
             --text-light: #718096;
             --border: #e2e8f0;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Jost', sans-serif;
@@ -90,7 +67,7 @@
             overflow-x: hidden;
         }
 
-        /* Header */
+        /* ── HEADER ── */
         header {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
             padding: 1rem 0;
@@ -98,19 +75,13 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
             animation: slideDown 0.6s ease-out;
         }
 
         @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(-100%); opacity: 0; }
+            to   { transform: translateY(0);     opacity: 1; }
         }
 
         nav {
@@ -129,77 +100,64 @@
             font-family: 'JetBrains Mono', monospace;
             letter-spacing: -0.5px;
         }
+        .logo span { color: var(--accent); }
 
-        .logo span {
-            color: var(--accent);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
+        nav ul { display: flex; list-style: none; gap: 2.5rem; }
 
         nav a {
-            color: white;
+            color: rgba(255,255,255,0.9);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
             transition: all 0.3s ease;
             position: relative;
         }
-
         nav a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
             background: var(--accent);
             transition: width 0.3s ease;
         }
+        nav a:hover { color: white; }
+        nav a:hover::after { width: 100%; }
 
-        nav a:hover::after {
-            width: 100%;
-        }
+        .menu-toggle { display: none; }
 
-        /* Menú hamburguesa */
-        .menu-toggle {
-            display: none;
-        }
-
-        /* Hero Section */
+        /* ── HERO ── */
         .hero {
             margin-top: 70px;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #2563a8 100%);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1a3f7a 50%, #1e5799 100%);
             color: white;
-            padding: 8rem 2rem 6rem;
+            padding: 9rem 2rem 7rem;
             position: relative;
             overflow: hidden;
         }
 
+        /* Patrón técnico de plano */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 50px,
-                    rgba(255, 255, 255, 0.03) 50px,
-                    rgba(255, 255, 255, 0.03) 51px
-                ),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 50px,
-                    rgba(255, 255, 255, 0.03) 50px,
-                    rgba(255, 255, 255, 0.03) 51px
-                );
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+            pointer-events: none;
+        }
+
+        /* Círculo decorativo */
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: -150px; top: -150px;
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -211,23 +169,33 @@
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(243,156,18,0.15);
+            border: 1px solid rgba(243,156,18,0.4);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.2rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            line-height: 1.1;
-            letter-spacing: -1px;
+            line-height: 1.05;
+            letter-spacing: -1.5px;
         }
 
         .hero .tagline {
@@ -238,462 +206,472 @@
         }
 
         .hero .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.85;
+            font-size: 1rem;
+            opacity: 0.75;
             margin-bottom: 3rem;
-            font-family: 'JetBrains Mono', monospace;
-            letter-spacing: 0.5px;
+            max-width: 620px;
+            line-height: 1.7;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--text-dark);
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
             animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: #1a1a1a;
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(243,156,18,0.35);
+        }
         .cta-button:hover {
+            background: #e08e0b;
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(243, 156, 18, 0.4);
+            box-shadow: 0 8px 30px rgba(243,156,18,0.45);
         }
 
-        /* Servicios */
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+        .cta-secondary:hover { color: white; border-color: white; }
+
+        /* ── SERVICIOS ── */
         .servicios {
-            padding: 6rem 2rem;
+            padding: 7rem 2rem;
             background: var(--bg-light);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        .section-header { text-align: center; margin-bottom: 4rem; }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--primary);
+            background: rgba(26,77,143,0.08);
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            text-align: center;
             letter-spacing: -0.5px;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
         }
 
         .section-subtitle {
-            text-align: center;
             color: var(--text-medium);
-            font-size: 1.1rem;
-            margin-bottom: 4rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.05rem;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.7;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
         }
 
         .service-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
-            border-top: 4px solid var(--primary);
-            animation: fadeInUp 0.6s ease-out both;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
         }
 
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        .service-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6) { animation-delay: 0.6s; }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
         }
 
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 35px rgba(0,0,0,0.1); }
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .service-icon-wrap {
+            width: 56px; height: 56px;
+            background: rgba(26,77,143,0.08);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
         }
+        .service-card:hover .service-icon-wrap {
+            background: var(--primary);
+        }
+        .service-icon-wrap svg { width: 26px; height: 26px; }
+        .service-card:hover .service-icon-wrap svg { stroke: white; }
 
         .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-dark);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
         }
 
         .service-card p {
             color: var(--text-medium);
+            font-size: 0.95rem;
             line-height: 1.7;
         }
 
-        /* Sobre Nosotros */
+        /* ── SOBRE NOSOTROS ── */
         .sobre-nosotros {
-            padding: 6rem 2rem;
+            padding: 7rem 2rem;
             background: white;
         }
 
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
-            margin-top: 3rem;
+            margin-top: 1rem;
         }
 
         .about-content h3 {
             font-size: 2rem;
+            font-weight: 700;
             margin-bottom: 1.5rem;
-            color: var(--primary-dark);
+            color: var(--text-dark);
+            letter-spacing: -0.3px;
         }
 
         .about-content p {
             color: var(--text-medium);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.4rem;
             line-height: 1.8;
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
 
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+        .about-highlight {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1.2rem 1.5rem;
+            background: rgba(26,77,143,0.05);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 8px 8px 0;
             margin-top: 2rem;
         }
 
+        .about-highlight svg { flex-shrink: 0; margin-top: 2px; }
+
+        .about-highlight p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+        }
+
         .stat-item {
-            text-align: center;
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             background: var(--bg-light);
-            border-radius: 8px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .stat-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
             color: var(--primary);
             font-family: 'JetBrains Mono', monospace;
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
 
         .stat-label {
             color: var(--text-medium);
-            margin-top: 0.5rem;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
-        /* Contacto */
+        /* ── CONTACTO ── */
         .contacto {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            padding: 7rem 2rem;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1a3f7a 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
         }
 
-        .contacto .section-title,
-        .contacto .section-subtitle {
-            color: white;
+        .contacto::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
         }
+
+        .contacto .container { position: relative; z-index: 1; }
+
+        .contacto .section-label { background: rgba(243,156,18,0.15); color: var(--accent); }
+        .contacto .section-title,
+        .contacto .section-subtitle { color: white; }
+        .contacto .section-subtitle { opacity: 0.8; }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.2fr;
             gap: 4rem;
-            margin-top: 3rem;
+            margin-top: 3.5rem;
         }
 
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
+        .contact-info { display: flex; flex-direction: column; gap: 1rem; }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
+            gap: 1.2rem;
+            padding: 1.4rem 1.5rem;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
             transition: all 0.3s ease;
         }
-
         .contact-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateX(5px);
+            background: rgba(255,255,255,0.12);
+            transform: translateX(4px);
         }
 
-        .contact-icon {
-            font-size: 1.8rem;
-            color: var(--accent);
+        .contact-icon-wrap {
+            width: 44px; height: 44px;
+            background: rgba(243,156,18,0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
+        .contact-icon-wrap svg { width: 20px; height: 20px; stroke: var(--accent); }
 
         .contact-details h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
         }
 
         .contact-details p {
             opacity: 0.9;
             line-height: 1.6;
+            font-size: 0.95rem;
         }
 
-        .contact-details a {
-            color: white;
-            text-decoration: none;
-        }
+        .contact-details a { color: white; text-decoration: none; }
+        .contact-details a:hover { text-decoration: underline; }
 
         .contact-form {
             background: white;
             padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
+        .contact-form h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
         }
+
+        .contact-form .form-intro {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group { margin-bottom: 1.2rem; }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             color: var(--text-dark);
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.9rem;
-            border: 2px solid var(--border);
+            padding: 0.85rem 1rem;
+            border: 1.5px solid var(--border);
             border-radius: 8px;
             font-family: 'Jost', sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            background: var(--bg-light);
             transition: all 0.3s ease;
         }
-
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(26,77,143,0.08);
         }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
+        .form-group textarea { resize: vertical; min-height: 110px; }
 
         .submit-button {
             width: 100%;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 1rem;
             border: none;
             border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Jost', sans-serif;
             cursor: pointer;
             transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            margin-top: 0.5rem;
         }
-
         .submit-button:hover {
-            background: var(--primary-dark);
+            opacity: 0.92;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(26, 77, 143, 0.3);
+            box-shadow: 0 6px 20px rgba(26,77,143,0.35);
         }
 
-        /* Footer */
+        /* ── FOOTER ── */
         footer {
-            background: var(--primary-dark);
+            background: #080f1a;
             color: white;
             padding: 2rem;
             text-align: center;
         }
+        footer p { opacity: 0.6; font-size: 0.9rem; margin-bottom: 0.3rem; }
+        footer p:last-child { opacity: 0.4; font-size: 0.82rem; }
 
-        footer p {
-            opacity: 0.8;
-        }
-
-        /* Responsive */
+        /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
-            nav {
-                padding: 0 1rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
+            nav { padding: 0 1rem; }
+            .logo { font-size: 1.2rem; }
 
             nav ul {
                 display: none;
                 position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
+                top: 100%; left: 0; right: 0;
                 background: var(--primary-dark);
                 flex-direction: column;
                 gap: 0;
-                padding: 1rem 0;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                padding: 0.5rem 0;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.3);
             }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            nav ul li {
-                padding: 0.8rem 2rem;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-
-            nav ul li:last-child {
-                border-bottom: none;
-            }
+            nav ul.active { display: flex; }
+            nav ul li { padding: 0.9rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            nav ul li:last-child { border-bottom: none; }
 
             .menu-toggle {
-                display: block;
-                background: none;
-                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(255,255,255,0.1);
+                border: 1px solid rgba(255,255,255,0.2);
+                border-radius: 8px;
                 color: white;
-                font-size: 1.5rem;
+                width: 40px; height: 40px;
                 cursor: pointer;
-                padding: 0.5rem;
-            }
-
-            .hero {
-                padding: 4rem 1.5rem 3rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.1rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 0.95rem;
-                margin-bottom: 2rem;
-            }
-
-            .cta-button {
-                padding: 0.9rem 2rem;
-                font-size: 0.95rem;
-            }
-
-            .servicios,
-            .sobre-nosotros,
-            .contacto {
-                padding: 4rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .section-subtitle {
-                font-size: 1rem;
-                margin-bottom: 2.5rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .service-card {
-                padding: 2rem;
-            }
-
-            .service-card h3 {
                 font-size: 1.3rem;
             }
 
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
+            .hero { padding: 5rem 1.5rem 4rem; }
+            .hero h1 { font-size: 2.4rem; letter-spacing: -0.5px; }
+            .hero .tagline { font-size: 1.1rem; }
+            .hero .subtitle { font-size: 0.9rem; }
+            .hero-actions { flex-direction: column; align-items: flex-start; }
 
-            .about-content h3 {
-                font-size: 1.6rem;
-            }
+            .servicios, .sobre-nosotros, .contacto { padding: 5rem 1.5rem; }
+            .section-title { font-size: 2rem; }
 
-            .about-content p {
-                font-size: 1rem;
-            }
+            .services-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .service-card { padding: 1.8rem 1.5rem; }
 
-            .stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
+            .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .about-content h3 { font-size: 1.7rem; }
 
-            .stat-item {
-                padding: 1.2rem;
-            }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .stat-number { font-size: 2.2rem; }
 
-            .stat-number {
-                font-size: 2rem;
-            }
+            .contact-form { padding: 2rem 1.5rem; }
+            .form-row { grid-template-columns: 1fr; }
 
-            .contact-item {
-                padding: 1.2rem;
-            }
-
-            .contact-icon {
-                font-size: 1.5rem;
-            }
-
-            .contact-details h4 {
-                font-size: 1rem;
-            }
-
-            .contact-details p {
-                font-size: 0.9rem;
-            }
-
-            .contact-form {
-                padding: 2rem 1.5rem;
-            }
-
-            .form-group {
-                margin-bottom: 1.2rem;
-            }
-
-            .form-group label {
-                font-size: 0.95rem;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                padding: 0.8rem;
-                font-size: 0.95rem;
-            }
-
-            .submit-button {
-                padding: 0.9rem;
-                font-size: 1rem;
-            }
-
-            footer {
-                padding: 1.5rem;
-                font-size: 0.9rem;
-            }
+            footer { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -701,7 +679,7 @@
     <header>
         <nav>
             <div class="logo"><span>EPSA</span> Ingeniería</div>
-            <button class="menu-toggle" aria-label="Menú">☰</button>
+            <button class="menu-toggle" aria-label="Menú">&#9776;</button>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
@@ -711,53 +689,99 @@
         </nav>
     </header>
 
+    <!-- HERO -->
     <section class="hero" id="inicio">
         <div class="hero-content">
+            <div class="hero-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg>
+                +30 años de experiencia en El Bierzo
+            </div>
             <h1>EPSA Ingeniería S.L.</h1>
             <p class="tagline">Soluciones de ingeniería</p>
-            <p class="subtitle">Especialistas en diseño de naves, instalaciones eléctricas, locales comerciales, instalaciones térmicas, instalaciones hidrosanitarias y proyectos técnicos industriales</p>
-            <a href="#contacto" class="cta-button">Solicitar Presupuesto</a>
+            <p class="subtitle">Especialistas en diseño de naves industriales, instalaciones eléctricas, locales comerciales, instalaciones térmicas, hidrosanitarias y proyectos técnicos industriales</p>
+            <div class="hero-actions">
+                <a href="#contacto" class="cta-button">
+                    Solicitar Presupuesto
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#servicios" class="cta-secondary">Ver servicios</a>
+            </div>
         </div>
     </section>
 
+    <!-- SERVICIOS -->
     <section class="servicios" id="servicios">
         <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <p class="section-subtitle">Ofrecemos soluciones integrales de ingeniería con la máxima calidad y profesionalidad</p>
-            
+            <div class="section-header">
+                <span class="section-label">Lo que hacemos</span>
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="section-subtitle">Ofrecemos soluciones integrales de ingeniería con la máxima calidad y profesionalidad</p>
+            </div>
+
             <div class="services-grid">
+                <!-- Naves -->
                 <div class="service-card">
-                    <span class="service-icon">📐</span>
+                    <div class="service-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21V9l9-6 9 6v12H3z"/><path d="M9 21V12h6v9"/>
+                        </svg>
+                    </div>
                     <h3>Diseño de Naves Industriales</h3>
                     <p>Proyectos completos de naves industriales, desde el diseño estructural hasta la documentación técnica necesaria para la construcción.</p>
                 </div>
-                
+
+                <!-- Eléctricas -->
                 <div class="service-card">
-                    <span class="service-icon">⚡</span>
+                    <div class="service-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
                     <h3>Instalaciones Eléctricas</h3>
                     <p>Diseño y cálculo de instalaciones eléctricas completas, garantizando seguridad, eficiencia energética y cumplimiento normativo.</p>
                 </div>
-                
+
+                <!-- Locales -->
                 <div class="service-card">
-                    <span class="service-icon">🏢</span>
+                    <div class="service-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+                        </svg>
+                    </div>
                     <h3>Locales Comerciales</h3>
                     <p>Proyectos técnicos para locales comerciales, incluyendo diseño de instalaciones, distribución de espacios y documentación legal.</p>
                 </div>
-                
+
+                <!-- Térmicas -->
                 <div class="service-card">
-                    <span class="service-icon">🌡️</span>
+                    <div class="service-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+                        </svg>
+                    </div>
                     <h3>Instalaciones Térmicas</h3>
                     <p>Sistemas de climatización, calefacción y refrigeración optimizados para el máximo confort y eficiencia energética.</p>
                 </div>
-                
+
+                <!-- Hidrosanitarias -->
                 <div class="service-card">
-                    <span class="service-icon">💧</span>
+                    <div class="service-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                        </svg>
+                    </div>
                     <h3>Instalaciones Hidrosanitarias</h3>
                     <p>Diseño de redes de agua potable, saneamiento y evacuación de aguas, cumpliendo con todas las normativas sanitarias.</p>
                 </div>
-                
+
+                <!-- Proyectos Técnicos -->
                 <div class="service-card">
-                    <span class="service-icon">⚙️</span>
+                    <div class="service-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/>
+                        </svg>
+                    </div>
                     <h3>Proyectos Técnicos Industriales</h3>
                     <p>Consultoría técnica integral, proyectos industriales, certificaciones y documentación técnica necesaria para su empresa.</p>
                 </div>
@@ -765,21 +789,27 @@
         </div>
     </section>
 
+    <!-- SOBRE NOSOTROS -->
     <section class="sobre-nosotros" id="nosotros">
         <div class="container">
-            <h2 class="section-title">Sobre Nosotros</h2>
-            
+            <div class="section-header">
+                <span class="section-label">Quiénes somos</span>
+                <h2 class="section-title">Sobre Nosotros</h2>
+            </div>
+
             <div class="about-grid">
                 <div class="about-content">
                     <h3>Experiencia y Profesionalidad</h3>
                     <p>EPSA Ingeniería S.L. es una empresa especializada en proyectos de ingeniería con sede en Ponferrada, León. Dirigida por <strong>Juan José López de la Fuente</strong>, Ingeniero Industrial colegiado, ofrecemos servicios de alta calidad en proyectos técnicos.</p>
-                    
                     <p>Nos comprometemos con la excelencia técnica y el cumplimiento de plazos, trabajando mano a mano con nuestros clientes para entender sus necesidades y ofrecer soluciones personalizadas.</p>
-                    
-                    <p>Con más de tres décadas de trayectoria, hemos desarrollado proyectos de todo tipo para empresas, industrias y particulares, siempre con el máximo rigor profesional y atención al detalle. Nuestra amplia experiencia nos permite abordar proyectos complejos con garantías de éxito.</p>
+                    <p>Con más de tres décadas de trayectoria, hemos desarrollado proyectos de todo tipo para empresas, industrias y particulares, siempre con el máximo rigor profesional y atención al detalle.</p>
+                    <div class="about-highlight">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <p>Ingeniero Industrial colegiado con más de 30 años de ejercicio profesional en El Bierzo y la provincia de León.</p>
+                    </div>
                 </div>
-                
-                <div class="stats">
+
+                <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-number">100%</div>
                         <div class="stat-label">Compromiso con la calidad</div>
@@ -801,68 +831,88 @@
         </div>
     </section>
 
+    <!-- CONTACTO -->
     <section class="contacto" id="contacto">
         <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            <p class="section-subtitle">Estamos a su disposición para cualquier consulta o presupuesto</p>
-            
+            <div class="section-header">
+                <span class="section-label">Hablemos</span>
+                <h2 class="section-title">Contacto</h2>
+                <p class="section-subtitle">Estamos a su disposición para cualquier consulta o presupuesto</p>
+            </div>
+
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <span class="contact-icon">👤</span>
+                        <div class="contact-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
                         <div class="contact-details">
                             <h4>Dirección Técnica</h4>
                             <p>Juan José López de la Fuente<br>Ingeniero Industrial</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
-                        <span class="contact-icon">📍</span>
+                        <div class="contact-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
                         <div class="contact-details">
                             <h4>Ubicación</h4>
-                            <p>C. Fueros de León, 11-1ºC<br>24402 Ponferrada, León<br>España</p>
+                            <p>C. Fueros de León, 11-1ºC<br>24402 Ponferrada, León</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
-                        <span class="contact-icon">📧</span>
+                        <div class="contact-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
                         <div class="contact-details">
                             <h4>Email</h4>
                             <p>juanjo@epsa-ingenieria.com</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
-                        <span class="contact-icon">📱</span>
+                        <div class="contact-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 5.55 5.55l.92-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
                         <div class="contact-details">
                             <h4>Teléfono</h4>
                             <p><a href="tel:+34987428600">987 428 600</a><br><a href="tel:+34676960245">676 960 245</a></p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="contact-form">
+                    <h3>Solicitar Presupuesto</h3>
+                    <p class="form-intro">Rellene el formulario y le responderemos en menos de 24 horas.</p>
                     <form action="https://formspree.io/f/mojedpaj" method="POST">
-                        <div class="form-group">
-                            <label for="nombre">Nombre completo</label>
-                            <input type="text" id="nombre" name="nombre" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" required placeholder="Su nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="600 000 000">
+                            </div>
                         </div>
-                        
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com">
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="telefono">Teléfono</label>
-                            <input type="tel" id="telefono" name="telefono">
-                        </div>
-                        
                         <div class="form-group">
                             <label for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" required></textarea>
+                            <textarea id="mensaje" name="mensaje" required placeholder="Describa brevemente su proyecto o consulta..."></textarea>
                         </div>
-                        
                         <button type="submit" class="submit-button">Enviar Mensaje</button>
                     </form>
                 </div>
@@ -872,14 +922,13 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 EPSA Ingeniería S.L. - Todos los derechos reservados</p>
+            <p>&copy; 2026 EPSA Ingeniería S.L. — Todos los derechos reservados</p>
             <p>Diseño web: Pablo López Fernández | pablosagi1@gmail.com</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Menu hamburguesa para móvil
             const menuToggle = document.querySelector('.menu-toggle');
             const navMenu = document.querySelector('nav ul');
 
@@ -889,15 +938,9 @@
                     e.stopPropagation();
                     navMenu.classList.toggle('active');
                 });
-
-                // Cerrar menú al hacer clic en un enlace
                 document.querySelectorAll('nav a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        navMenu.classList.remove('active');
-                    });
+                    link.addEventListener('click', function() { navMenu.classList.remove('active'); });
                 });
-
-                // Cerrar menú al hacer clic fuera
                 document.addEventListener('click', function(e) {
                     if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                         navMenu.classList.remove('active');
@@ -905,25 +948,13 @@
                 });
             }
 
-            // Smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+                anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 });
             });
-
-            // Intersection Observer for animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
 
             const observer = new IntersectionObserver(function(entries) {
                 entries.forEach(entry => {
@@ -932,12 +963,12 @@
                         entry.target.style.transform = 'translateY(0)';
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-            document.querySelectorAll('.service-card, .stat-item').forEach(el => {
+            document.querySelectorAll('.service-card, .stat-item, .contact-item').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
-                el.style.transition = 'all 0.6s ease-out';
+                el.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
                 observer.observe(el);
             });
         });
